@@ -41,7 +41,8 @@ class $modify(FLAlertLayer) {
     m_fields->desc = desc;
     m_fields->btn1 = btn1;
     m_fields->btn2 = btn2;
-    return FLAlertLayer::create(delegate, title, desc, btn1, btn2, width, scroll, height, textscale)
+    FLAlertLayer::create(delegate, title, desc, btn1, btn2, width, scroll, height, textscale);
+    return;
   }
   void show() {
     bool isbtn2 = false;
@@ -60,4 +61,4 @@ class $modify(FLAlertLayer) {
     FLAlertLayer::show();
     return
   }
-}
+};
