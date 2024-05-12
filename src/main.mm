@@ -28,7 +28,7 @@ void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSS
 }
 
 class $modify(FLAlertLayer) {
-  FLAlertLayer* fr = this;
+  FLAlertLayer* fr;
   struct Fields {
     FLAlertLayerProtocol* delegate;
     char const* title;
@@ -47,6 +47,7 @@ class $modify(FLAlertLayer) {
   }
   
   void show() {
+    fr = this;
     bool isbtn2 = false;
     NSString* btn2;
     if (m_fields->title) {
