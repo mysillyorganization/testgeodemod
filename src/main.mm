@@ -11,11 +11,11 @@ void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSS
                               message:@"This is an alert."
                               preferredStyle:UIAlertControllerStyleAlert];
   UIAlertAction* action1 = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                              handler:^(UIAlertAction * action) {}];
+                              handler:nil];
   [alert addAction:action1];
   if (isbtn2) {
     UIAlertAction* action2 = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                              handler:^(UIAlertAction * action) {}];
+                              handler:nil];
     [alert addAction:action2];
   }
 
@@ -55,6 +55,7 @@ class $modify(FLAlertLayer) {
         isbtn2 = true;
         btn2 = [NSString stringWithUTF8String:m_fields->btn2];
       }
+      NSLog(@"silly %@", title);
       showAlert(title, desc, btn1, isbtn2, btn2, m_fields->delegate);
       return;
     }
