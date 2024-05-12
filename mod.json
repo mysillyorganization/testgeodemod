@@ -1,0 +1,12 @@
+{
+	"geode": "2.0.0-beta.26",
+	"gd": {
+		"ios": "2.205"
+	},
+	"version": "v1.0.0",
+	"id": "com.pengubow.thesillymod",
+	"name": "The Silly Mod",
+	"developer": "pengubow",
+	"description": "Adds silly",
+	"early-load": true
+}
