@@ -5,17 +5,21 @@
 #include <UIKit/UIKit.h>
 using namespace geode::prelude;
 
-void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSString* btn2, FLAlertLayerProtocol* delegate) {
+void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSString* btn2, FLAlertLayerProtocol* delegate, FLAlertLayer* fr) {
   UIViewController *view = [UIApplication sharedApplication].keyWindow.rootViewController;
   UIAlertController* alert = [UIAlertController alertControllerWithTitle:title
                               message:desc
                               preferredStyle:UIAlertControllerStyleAlert];
   UIAlertAction* action1 = [UIAlertAction actionWithTitle:btn1 style:UIAlertActionStyleDefault
-                              handler:nil];
+                              handler:^(UIAlertAction* action) {
+                                delegate->FLAlert_Clicked(fr, false);
+                              }];
   [alert addAction:action1];
   if (isbtn2) {
     UIAlertAction* action2 = [UIAlertAction actionWithTitle:btn2 style:UIAlertActionStyleDefault
-                              handler:nil];
+                              handler:^(UIAlertAction* action) {
+                                delegate->FLAlert_Clicked(fr, true);
+                              }];
     [alert addAction:action2];
   }
 
@@ -24,6 +28,7 @@ void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSS
 }
 
 class $modify(FLAlertLayer) {
+  FLAlertLayer* fr = this;
   struct Fields {
     FLAlertLayerProtocol* delegate;
     char const* title;
@@ -52,7 +57,7 @@ class $modify(FLAlertLayer) {
         isbtn2 = true;
         btn2 = [NSString stringWithUTF8String:m_fields->btn2];
       }
-      showAlert(title, desc, btn1, isbtn2, btn2, m_fields->delegate);
+      showAlert(title, desc, btn1, isbtn2, btn2, m_fields->delegate, fr);
       return;
     }
     FLAlertLayer::show();
