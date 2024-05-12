@@ -12,13 +12,13 @@ void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSS
                               preferredStyle:UIAlertControllerStyleAlert];
   UIAlertAction* action1 = [UIAlertAction actionWithTitle:btn1 style:UIAlertActionStyleDefault
                               handler:^(UIAlertAction* action) {
-                                delegate::FLAlert_Clicked(fr, false);
+                                delegate->FLAlert_Clicked(fr, false);
                               }];
   [alert addAction:action1];
   if (isbtn2) {
     UIAlertAction* action2 = [UIAlertAction actionWithTitle:btn2 style:UIAlertActionStyleDefault
                               handler:^(UIAlertAction* action) {
-                                delegate::FLAlert_Clicked(fr, true);
+                                delegate->FLAlert_Clicked(fr, true);
                               }];
     [alert addAction:action2];
   }
@@ -51,7 +51,7 @@ class $modify(FLAlertLayer) {
     return;
   }
   void show() {
-    fr = FLAlertLayer::show();
+    fr = this;
     bool isbtn2 = false;
     NSString* btn2;
     if (m_fields->title) {
