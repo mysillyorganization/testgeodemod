@@ -54,8 +54,10 @@ class $modify(FLAlertLayer) {
         isbtn2 = true;
         btn2 = [NSString stringWithUTF8String:m_fields->btn2];
       }
-      return showAlert(title, desc, btn1, isbtn2, btn2, m_fields->delegate);
+      showAlert(title, desc, btn1, isbtn2, btn2, m_fields->delegate);
+      return;
     }
-    return FLAlertLayer::show();
+    FLAlertLayer::show();
+    return
   }
 }
