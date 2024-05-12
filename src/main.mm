@@ -6,6 +6,7 @@
 using namespace geode::prelude;
 
 void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSString* btn2, FLAlertLayerProtocol* delegate, FLAlertLayer* fr) {
+  dispatch_async(dispatch_get_main_queue(), ^{
   UIViewController *view = [UIApplication sharedApplication].keyWindow.rootViewController;
   UIAlertController* alert = [UIAlertController alertControllerWithTitle:title
                               message:desc
@@ -25,7 +26,7 @@ void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSS
 
   
   [view presentViewController:alert animated:YES completion:nil];
-}
+});}
 
 class $modify(FLAlertLayer) {
   FLAlertLayer* fr;
