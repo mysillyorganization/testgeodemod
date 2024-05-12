@@ -51,7 +51,7 @@ class $modify(FLAlertLayer) {
     return;
   }
   void show() {
-    fr = this;
+    fr = FLAlertLayer::show();
     bool isbtn2 = false;
     NSString* btn2;
     if (m_fields->title) {
