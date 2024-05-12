@@ -47,7 +47,7 @@ class $modify(FLAlertLayer) {
   }
   void create(FLAlertLayerProtocol *p0, char const *p1, gd::string p2, char const *p3, char const *p4, float p5, bool p6, float p7, float p8) {
     fr = this;
-    reutrn FLAlertLayer::create(p0, p1, p2, p3, p4, p5, p6, p7, p8)
+    reutrn FLAlertLayer::create(p0, p1, p2, p3, p4, p5, p6, p7, p8);
   }
   void show() {
     bool isbtn2 = false;
