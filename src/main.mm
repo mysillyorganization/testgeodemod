@@ -6,7 +6,7 @@
 using namespace geode::prelude;
 
 void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSString* btn2, FLAlertLayerProtocol* delegate) {
-  UIViewController *view = [[[UIApplication sharedApplication] delegate] window].rootViewController;
+  UIViewController *view = [UIApplication sharedApplication].keyWindow.rootViewController;
   UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"My Alert"
                               message:@"This is an alert."
                               preferredStyle:UIAlertControllerStyleAlert];
