@@ -7,14 +7,14 @@ using namespace geode::prelude;
 
 void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSString* btn2, FLAlertLayerProtocol* delegate) {
   UIViewController *view = [UIApplication sharedApplication].keyWindow.rootViewController;
-  UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"My Alert"
-                              message:@"This is an alert."
+  UIAlertController* alert = [UIAlertController alertControllerWithTitle:title
+                              message:desc
                               preferredStyle:UIAlertControllerStyleAlert];
-  UIAlertAction* action1 = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+  UIAlertAction* action1 = [UIAlertAction actionWithTitle:btn1 style:UIAlertActionStyleDefault
                               handler:nil];
   [alert addAction:action1];
   if (isbtn2) {
-    UIAlertAction* action2 = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+    UIAlertAction* action2 = [UIAlertAction actionWithTitle:btn2 style:UIAlertActionStyleDefault
                               handler:nil];
     [alert addAction:action2];
   }
@@ -52,9 +52,7 @@ class $modify(FLAlertLayer) {
         isbtn2 = true;
         btn2 = [NSString stringWithUTF8String:m_fields->btn2];
       }
-      NSLog(@"silly %@", title);
-      NSLog(@"silly %@", desc);
-      //showAlert(title, desc, btn1, isbtn2, btn2, m_fields->delegate);
+      showAlert(title, desc, btn1, isbtn2, btn2, m_fields->delegate);
       return;
     }
     FLAlertLayer::show();
