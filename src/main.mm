@@ -25,15 +25,15 @@ void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSS
 
 class $modify(FLAlertLayer) {
   struct Fields {
-    FLAlertLayerProtocol* delegate,
-    char const* title,
-    std::string desc,
-    char const* btn1,
-    char const* btn2
+    FLAlertLayerProtocol* delegate;
+    char const* title;
+    std::string desc;
+    char const* btn1;
+    char const* btn2;
     
   }
   bool init(FLAlertLayerProtocol *p0, char const *p1, gd::string p2, char const *p3, char const *p4, float p5, bool p6, float p7, float p8) {
-    return init(FLAlertLayerProtocol *p0, char const *p1, gd::string p2, char const *p3, char const *p4, float p5, bool p6, float p7, float p8);
+    return init(p0, p1, p2, p3, p4, p5, p6, p7, p8);
   }
   void create(FLAlertLayerProtocol *delegate, char const *title, gd::string desc, char const *btn1, char const *btn2, float width, bool scroll, float height, float textscale) {
     m_fields->delegate = delegate;
