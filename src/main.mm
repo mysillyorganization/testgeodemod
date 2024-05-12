@@ -59,6 +59,6 @@ class $modify(FLAlertLayer) {
       return;
     }
     FLAlertLayer::show();
-    return
+    return;
   }
 };
