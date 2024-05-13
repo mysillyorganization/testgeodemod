@@ -28,11 +28,11 @@ void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSS
   [view presentViewController:alert animated:YES completion:nil];
 });}
 
-class $modify(FLAlertLayerProtocol) {
+/*class $modify(FLAlertLayerProtocol) {
   void FLAlert_Clicked(FLAlertLayer* layer, bool btn2) override {
     return FLAlertLayerProtocol::FLAlert_Clicked(layer, btn2);
   }
-};
+};*/
 
 class $modify(FLAlertLayer) {
   
