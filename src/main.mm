@@ -79,6 +79,7 @@ class $modify(FLAlertLayer) {
     if (m_fields->title) {
       m_fields->delegate = dynamic_cast<FLAlertLayerProtocol*>(FLAlertLayer::create(p0, p1, p2, p3, p4, p5, p6, p7, p8));
       m_fields->alert = dynamic_cast<FLAlertLayer*>(FLAlertLayer::create(p0, p1, p2, p3, p4, p5, p6, p7, p8));
+      FLAlertLayer::create(m_fields->delegate, p1, p2, p3, p4, p5, p6, p7, p8)
       return;
     }
     FLAlertLayer::create(p0, p1, p2, p3, p4, p5, p6, p7, p8);
@@ -106,10 +107,10 @@ class $modify(FLAlertLayer) {
         isbtn2 = true;
         btn2 = [NSString stringWithUTF8String:m_fields->btn2];
       }
-      
+      m_fields->delegate->FLAlert_Clicked(m_fields->alert, true);
       //NSLog(@"silly %s", m_fields->delegate);
       //NSLog(@"silly %s", m_fields->fr);
-      showAlert(title, desc, btn1, isbtn2, btn2, m_fields->delegate, m_fields->alert);
+      //showAlert(title, desc, btn1, isbtn2, btn2, m_fields->delegate, m_fields->alert);
       return;
     }
     FLAlertLayer::show();
