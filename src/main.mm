@@ -17,7 +17,7 @@ void button1callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok) {
 }
 
 void button2callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok, CCMenuItemSprintExtra* button2) {
-  alert->onBtn2(FLAlertLayer::onBtn2(button2));
+  alert->onBtn2(button2);
   //FLAlertLayer->onBtn2(alert);
   //ok->FLAlert_Clicked(alert, true);
 }
@@ -86,7 +86,7 @@ class $modify(FLAlertLayer) {
       NSString* btn1 = [NSString stringWithUTF8String:m_fields->btn1];
       CCDirector* director = CCDirector::sharedDirector();
       auto scene = director->getRunningScene();
-      for (auto pleaseflalert : scene->getChildren()) {
+      for (auto pleaseflalert = scene->getChildren()) {
         auto FLAlert = typeinfo_cast<FLAlertLayer*>(pleaseflalert);
         if (FLAlert) {
           auto mainlayer = FLAlert->getChildByIDRecursive("main-layer");
