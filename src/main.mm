@@ -83,6 +83,15 @@ class $modify(FLAlertLayer) {
       NSString* title = [NSString stringWithUTF8String:m_fields->title];
       NSString* desc = [NSString stringWithUTF8String:m_fields->desc.c_str()];
       NSString* btn1 = [NSString stringWithUTF8String:m_fields->btn1];
+      CCDirector* director = CCDirector::sharedDirector();
+      auto scene = CCDirector::sharedDirector()->getRunningScene();
+      auto pleasebeflalertlayer = scene->getHighestChildZ();
+      if (pleasebeflalertlayer != 105 || pleasebeflalertlayer != alert) {
+        NSLog(@"silly noooooooo");
+        return;
+      } else {
+        NSLog(@"silly ok what now");
+      }
       if (m_fields->btn2) {
         isbtn2 = true;
         btn2 = [NSString stringWithUTF8String:m_fields->btn2];
