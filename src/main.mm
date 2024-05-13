@@ -1,9 +1,17 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/FLAlertLayer.hpp>
-#include <Geode/modify/FLAlertLayerProtocol.hpp>
+#include <Geode/binding/FLAlertLayerProtocol.hpp>
 #include <Foundation/Foundation.h>
 #include <UIKit/UIKit.h>
 using namespace geode::prelude;
+
+void button1callback(FLAlertLayer* alert) {
+  FLAlertLayerProtocol::FLAlert_Clicked(alert, false);
+}
+
+void button2callback(FLAlertLayer* alert) {
+  FLAlertLayerProtocol::FLAlert_Clicked(alert, true);
+}
 
 void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSString* btn2, FLAlertLayerProtocol* delegate, FLAlertLayer* fr) {
   dispatch_async(dispatch_get_main_queue(), ^{
@@ -13,13 +21,13 @@ void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSS
                               preferredStyle:UIAlertControllerStyleAlert];
   UIAlertAction* action1 = [UIAlertAction actionWithTitle:btn1 style:UIAlertActionStyleDefault
                               handler:^(UIAlertAction* action) {
-                                FLAlertLayerProtocol::FLAlert_Clicked(fr, false);
+                                button1callback(fr);
                               }];
   [alert addAction:action1];
   if (isbtn2) {
     UIAlertAction* action2 = [UIAlertAction actionWithTitle:btn2 style:UIAlertActionStyleDefault
                               handler:^(UIAlertAction* action) {
-                                FLAlertLayerProtocol::FLAlert_Clicked(fr, true);
+                                button2callback(fr);
                               }];
     [alert addAction:action2];
   }
@@ -27,12 +35,6 @@ void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSS
   
   [view presentViewController:alert animated:YES completion:nil];
 });}
-
-class $modify(FLAlertLayerProtocol) {
-  void FLAlert_Clicked(FLAlertLayer* layer, bool btn2) override {
-    return FLAlertLayerProtocol::FLAlert_Clicked(layer, btn2);
-  }
-};
 
 class $modify(FLAlertLayer) {
   
