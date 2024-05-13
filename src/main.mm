@@ -16,9 +16,8 @@ void button1callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok) {
   //ok->FLAlert_Clicked(alert, false);
 }
 
-void button2callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok, CCObject* button2) {
-  NSLog(@"silly %s", button2);
-  //alert->onBtn2(button2);
+void button2callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok) {
+  alert->onBtn2(alert);
   //FLAlertLayer->onBtn2(alert);
   //ok->FLAlert_Clicked(alert, true);
 }
@@ -37,7 +36,7 @@ void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSS
   if (isbtn2) {
     UIAlertAction* action2 = [UIAlertAction actionWithTitle:btn2 style:UIAlertActionStyleDefault
                               handler:^(UIAlertAction* action) {
-                                button2callback(fr, qhar, button2);
+                                button2callback(fr, qhar);
                               }];
     [alert addAction:action2];
   }
