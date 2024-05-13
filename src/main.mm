@@ -12,7 +12,7 @@ void button1callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok) {
   if (ok) {
     NSLog(@"very silly");
   }
-  
+  //ok yeah both are defined but no callback
   ok->FLAlert_Clicked(alert, false);
 }
 
@@ -71,15 +71,7 @@ class $modify(FLAlertLayer) {
     m_fields->btn2 = p4;
     return FLAlertLayer::init(p0, p1, p2, p3, p4, p5, p6, p7, p8);
   }
-  void create(FLAlertLayerProtocol *p0, char const *p1, gd::string p2, char const *p3, char const *p4, float p5, bool p6, float p7, float p8) {
-    m_fields->title = p1;
-    m_fields->desc = p2;
-    m_fields->btn1 = p3;
-    m_fields->btn2 = p4;
-    
-    FLAlertLayer::create(m_fields->delegate, p1, p2, p3, p4, p5, p6, p7, p8);
-    return;
-  }
+  
   void show() {
     auto alert = static_cast<FLAlertLayer*>(FLAlertLayer::create(m_fields->delegate, m_fields->title, m_fields->desc, m_fields->btn1, m_fields->btn2));
     FLAlertLayer::show();
