@@ -16,13 +16,13 @@ void button1callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok) {
   //ok->FLAlert_Clicked(alert, false);
 }
 
-void button2callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok) {
-  alert->onBtn2(menu_selector(FLAlertLayer::onBtn2));
+void button2callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok, CCMenuItemSprintExtra* button2) {
+  alert->onBtn2(FLAlertLayer::onBtn2(button2));
   //FLAlertLayer->onBtn2(alert);
   //ok->FLAlert_Clicked(alert, true);
 }
 
-void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSString* btn2, FLAlertLayerProtocol* qhar, FLAlertLayer* fr) {
+void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSString* btn2, FLAlertLayerProtocol* qhar, FLAlertLayer* fr, CCMenuItemSpriteExtra* button2) {
   dispatch_async(dispatch_get_main_queue(), ^{
   UIViewController *view = [UIApplication sharedApplication].keyWindow.rootViewController;
   UIAlertController* alert = [UIAlertController alertControllerWithTitle:title
@@ -36,7 +36,7 @@ void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSS
   if (isbtn2) {
     UIAlertAction* action2 = [UIAlertAction actionWithTitle:btn2 style:UIAlertActionStyleDefault
                               handler:^(UIAlertAction* action) {
-                                button2callback(fr, qhar);
+                                button2callback(fr, qhar, button2);
                               }];
     [alert addAction:action2];
   }
@@ -53,7 +53,7 @@ class $modify(FLAlertLayerProtocol) {
 };
 
 class $modify(FLAlertLayer) {
-  
+  CCMenuItemSpriteExtra* button2;
   struct Fields {
     FLAlertLayerProtocol* delegate;
     FLAlertLayer* fr;
@@ -84,17 +84,17 @@ class $modify(FLAlertLayer) {
       NSString* title = [NSString stringWithUTF8String:m_fields->title];
       NSString* desc = [NSString stringWithUTF8String:m_fields->desc.c_str()];
       NSString* btn1 = [NSString stringWithUTF8String:m_fields->btn1];
-      /*CCDirector* director = CCDirector::sharedDirector();
+      CCDirector* director = CCDirector::sharedDirector();
       auto scene = director->getRunningScene();
       for (auto pleaseflalert : scene->getChildren()) {
         auto FLAlert = typeinfo_cast<FLAlertLayer*>(pleaseflalert);
         if (FLAlert) {
           auto mainlayer = FLAlert->getChildByIDRecursive("main-layer");
           auto mainmenu = mainlayer->getChildByIDRecursive("main-menu");
-          auto button1 = mainmenu->getChildByIDRecursive("button-1");
+          button2 = mainmenu->getChildByIDRecursive("button-2");
         }
         break;
-      }*/
+      }
       if (m_fields->btn2) {
         isbtn2 = true;
         btn2 = [NSString stringWithUTF8String:m_fields->btn2];
@@ -102,7 +102,7 @@ class $modify(FLAlertLayer) {
       
       //NSLog(@"silly %s", m_fields->delegate);
       //NSLog(@"silly %s", m_fields->fr);
-      showAlert(title, desc, btn1, isbtn2, btn2, m_fields->delegate, alert);
+      showAlert(title, desc, btn1, isbtn2, btn2, m_fields->delegate, alert, button2);
       return;
     }
     FLAlertLayer::show();
