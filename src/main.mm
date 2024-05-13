@@ -70,7 +70,8 @@ class $modify(FLAlertLayer) {
     m_fields->btn1 = p3;
     m_fields->btn2 = p4;
     if (m_fields->title) {
-      alert = static_cast<FLAlertLayer*>(FLAlertLayer::init(p0, p1, p2, p3, p4, p5, p6, p7, p8));
+      m_fields->alert = FLAlertLayer::init(p0, p1, p2, p3, p4, p5, p6, p7, p8);
+      return true;
     }
     return FLAlertLayer::init(p0, p1, p2, p3, p4, p5, p6, p7, p8);
   }
@@ -80,7 +81,7 @@ class $modify(FLAlertLayer) {
     bool isbtn2 = false;
     NSString* btn2;
     if (m_fields->title) {
-      //auto alert = static_cast<FLAlertLayer*>(FLAlertLayer::create(m_fields->delegate, m_fields->title, m_fields->desc, m_fields->btn1, m_fields->btn2));
+      alert = typeinfo_cast<FLAlertLayer*>(this));
     //if ([NSString stringWithUTF8String:m_fields->title] != [NSNull null]) {
       NSString* title = [NSString stringWithUTF8String:m_fields->title];
       NSString* desc = [NSString stringWithUTF8String:m_fields->desc.c_str()];
