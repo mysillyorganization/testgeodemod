@@ -72,6 +72,7 @@ class $modify(FLAlertLayer) {
     m_fields->desc = p2;
     m_fields->btn1 = p3;
     m_fields->btn2 = p4;
+    button2 = this;
     return FLAlertLayer::init(p0, p1, p2, p3, p4, p5, p6, p7, p8);
   }
   
@@ -85,7 +86,7 @@ class $modify(FLAlertLayer) {
       NSString* title = [NSString stringWithUTF8String:m_fields->title];
       NSString* desc = [NSString stringWithUTF8String:m_fields->desc.c_str()];
       NSString* btn1 = [NSString stringWithUTF8String:m_fields->btn1];
-      CCDirector* director = CCDirector::sharedDirector();
+      /*CCDirector* director = CCDirector::sharedDirector();
       auto scene = director->getRunningScene();
       auto FLAlert = scene->getChildByIDRecursive("FLAlertLayer");
       auto FLAlert1 = typeinfo_cast<FLAlertLayer*>(FLAlert);
@@ -93,7 +94,7 @@ class $modify(FLAlertLayer) {
         auto mainlayer = FLAlert->getChildByIDRecursive("main-layer");
         auto mainmenu = mainlayer->getChildByIDRecursive("main-menu");
         button2 = mainmenu->getChildByIDRecursive("button-2");
-      }
+      }*/
       if (m_fields->btn2) {
         isbtn2 = true;
         btn2 = [NSString stringWithUTF8String:m_fields->btn2];
