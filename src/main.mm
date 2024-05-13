@@ -54,7 +54,7 @@ void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSS
 class $modify(FLAlertLayer) {
   
   struct Fields {
-    new FLAlertLayerProtocol* delegate;
+    FLAlertLayerProtocol* delegate;
     FLAlertLayer* alert;
     char const* title;
     std::string desc;
@@ -62,8 +62,8 @@ class $modify(FLAlertLayer) {
     char const* btn2;
   };
   bool init(FLAlertLayerProtocol *p0, char const *p1, gd::string p2, char const *p3, char const *p4, float p5, bool p6, float p7, float p8) {
-    //p0 = new FLAlertLayerProtocol;
-    p0 = m_fields->delegate;
+    p0 = new FLAlertLayerProtocol;
+    m_fields->delegate = p0;
     
     m_fields->title = p1;
     m_fields->desc = p2;
