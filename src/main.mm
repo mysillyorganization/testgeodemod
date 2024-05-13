@@ -98,7 +98,7 @@ class $modify(FLAlertLayer) {
       
       //NSLog(@"silly %s", m_fields->delegate);
       //NSLog(@"silly %s", m_fields->fr);
-      showAlert(title, desc, btn1, isbtn2, btn2, m_fields->delegate, alert);
+      //showAlert(title, desc, btn1, isbtn2, btn2, m_fields->delegate, alert);
       return;
     }
     FLAlertLayer::show();
