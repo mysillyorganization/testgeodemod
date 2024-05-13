@@ -52,7 +52,7 @@ class $modify(FLAlertLayer) {
     m_fields->desc = p2;
     m_fields->btn1 = p3;
     m_fields->btn2 = p4;
-    fr = static_cast<FLAlertLayer*>(FLAlertLayer::create(p0, p1, p2, p3, p4, p5, p6, p7, p8);
+    fr = static_cast<FLAlertLayer*>(FLAlertLayer::create(p0, p1, p2, p3, p4, p5, p6, p7, p8));
     FLAlertLayer::create(p0, p1, p2, p3, p4, p5, p6, p7, p8);
     return;
   }
