@@ -6,7 +6,14 @@
 using namespace geode::prelude;
 
 void button1callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok) {
-  ok->FLAlert_Clicked(alert, false);
+  if (alert) {
+    NSLog(@"silly");
+  }
+  if (ok) {
+    NSLog(@"very silly");
+  }
+  return;
+  //ok->FLAlert_Clicked(alert, false);
 }
 
 void button2callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok) {
