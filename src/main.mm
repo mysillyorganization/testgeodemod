@@ -17,8 +17,7 @@ void button1callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok) {
 }
 
 void button2callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok) {
-  alert->onBtn2(alert);
-  //FLAlertLayer->onBtn2(alert);
+  alert->onBtn2(ok);
   //ok->FLAlert_Clicked(alert, true);
 }
 
