@@ -57,6 +57,9 @@ class $modify(FLAlertLayer) {
   bool init(FLAlertLayerProtocol *p0, char const *p1, gd::string p2, char const *p3, char const *p4, float p5, bool p6, float p7, float p8) {
     if (p0) {
       m_fields->delegate = p0;
+    } else {
+      p0 = new FLAlertLayerProtocol;
+      m_fields->delegate = p0;
     }
     
     m_fields->title = p1;
