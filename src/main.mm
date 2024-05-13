@@ -5,15 +5,15 @@
 #include <UIKit/UIKit.h>
 using namespace geode::prelude;
 
-void button1callback(FLAlertLayer* alert) {
-  (FLAlertLayerProtocol*)->FLAlert_Clicked(alert, false);
+void button1callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok) {
+  ok->FLAlert_Clicked(alert, false);
 }
 
-void button2callback(FLAlertLayer* alert) {
-  (FLAlertLayerProtocol*)->FLAlert_Clicked(alert, true);
+void button2callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok) {
+  ok->FLAlert_Clicked(alert, true);
 }
 
-void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSString* btn2, FLAlertLayerProtocol* delegate, FLAlertLayer* fr) {
+void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSString* btn2, FLAlertLayerProtocol* qhar, FLAlertLayer* fr) {
   dispatch_async(dispatch_get_main_queue(), ^{
   UIViewController *view = [UIApplication sharedApplication].keyWindow.rootViewController;
   UIAlertController* alert = [UIAlertController alertControllerWithTitle:title
@@ -21,13 +21,13 @@ void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSS
                               preferredStyle:UIAlertControllerStyleAlert];
   UIAlertAction* action1 = [UIAlertAction actionWithTitle:btn1 style:UIAlertActionStyleDefault
                               handler:^(UIAlertAction* action) {
-                                button1callback(fr);
+                                button1callback(fr, qhar);
                               }];
   [alert addAction:action1];
   if (isbtn2) {
     UIAlertAction* action2 = [UIAlertAction actionWithTitle:btn2 style:UIAlertActionStyleDefault
                               handler:^(UIAlertAction* action) {
-                                button2callback(fr);
+                                button2callback(fr, qhar);
                               }];
     [alert addAction:action2];
   }
