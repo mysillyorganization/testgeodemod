@@ -1,6 +1,6 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/FLAlertLayer.hpp>
-#include <Geode/binding/FLAlertLayerProtocol.hpp>
+#include <Geode/modify/FLAlertLayerProtocol.hpp>
 #include <Foundation/Foundation.h>
 #include <UIKit/UIKit.h>
 using namespace geode::prelude;
@@ -42,6 +42,13 @@ void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSS
   
   [view presentViewController:alert animated:YES completion:nil];
 });}
+
+class $modify(FLAlertLayerProtocol) {
+  void FLAlert_Clicked(FLAlertLayer* flalert, bool btn2) {
+    FLAlertLayerProtocol::FLAlert_Clicked(flalert, btn2);
+    return;
+  }
+};
 
 class $modify(FLAlertLayer) {
   
