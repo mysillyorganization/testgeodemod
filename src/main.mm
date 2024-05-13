@@ -16,14 +16,14 @@ void button1callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok) {
   //ok->FLAlert_Clicked(alert, false);
 }
 
-void button2callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok, CCNode* button2) {
+void button2callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok, CCObject* button2) {
   NSLog(@"silly %s", button2);
   //alert->onBtn2(button2);
   //FLAlertLayer->onBtn2(alert);
   //ok->FLAlert_Clicked(alert, true);
 }
 
-void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSString* btn2, FLAlertLayerProtocol* qhar, FLAlertLayer* fr, CCNode* button2) {
+void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSString* btn2, FLAlertLayerProtocol* qhar, FLAlertLayer* fr, CCObject* button2) {
   dispatch_async(dispatch_get_main_queue(), ^{
   UIViewController *view = [UIApplication sharedApplication].keyWindow.rootViewController;
   UIAlertController* alert = [UIAlertController alertControllerWithTitle:title
@@ -54,7 +54,7 @@ class $modify(FLAlertLayerProtocol) {
 };
 
 class $modify(FLAlertLayer) {
-  CCNode* button2;
+  CCObject* button2;
   struct Fields {
     FLAlertLayerProtocol* delegate;
     FLAlertLayer* fr;
