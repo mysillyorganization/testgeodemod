@@ -86,7 +86,7 @@ class $modify(FLAlertLayer) {
       NSString* btn1 = [NSString stringWithUTF8String:m_fields->btn1];
       CCDirector* director = CCDirector::sharedDirector();
       auto scene = director->getRunningScene();
-      for (auto hi : scene->getChildren()) {
+      for (auto& hi : scene->getChildren()) {
         auto FLAlert = typeinfo_cast<FLAlertLayer*>(hi);
         if (FLAlert) {
           auto mainlayer = FLAlert->getChildByIDRecursive("main-layer");
