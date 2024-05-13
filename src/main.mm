@@ -76,7 +76,8 @@ class $modify(FLAlertLayer) {
     auto alert = static_cast<FLAlertLayer*>(FLAlertLayer::create(m_fields->delegate, m_fields->title, m_fields->desc, m_fields->btn1, m_fields->btn2));
     bool isbtn2 = false;
     NSString* btn2;
-    if (m_fields->title) {
+    //if (m_fields->title) {
+    if ([NSString stringWithUTF8String:m_fields->title] != [NSNull null]) {
       NSString* title = [NSString stringWithUTF8String:m_fields->title];
       NSString* desc = [NSString stringWithUTF8String:m_fields->desc.c_str()];
       NSString* btn1 = [NSString stringWithUTF8String:m_fields->btn1];
