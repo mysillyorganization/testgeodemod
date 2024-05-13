@@ -87,7 +87,7 @@ class $modify(FLAlertLayer) {
       CCDirector* director = CCDirector::sharedDirector();
       auto scene = director->getRunningScene();
       auto FLAlert = scene->getChildByIDRecursive("FLAlertLayer");
-      auto FLAlert1 typeinfo_cast<FLAlertLayer*>(FLAlert);
+      auto FLAlert1 = typeinfo_cast<FLAlertLayer*>(FLAlert);
       if (FLAlert1) {
         auto mainlayer = FLAlert->getChildByIDRecursive("main-layer");
         auto mainmenu = mainlayer->getChildByIDRecursive("main-menu");
