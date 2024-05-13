@@ -44,7 +44,7 @@ void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSS
 });}
 
 class $modify(FLAlertLayerProtocol) {
-  void FLAlert_Clicked(FLAlertLayer* flalert, bool btn2) {
+  virtual void FLAlert_Clicked(FLAlertLayer* flalert, bool btn2) override {
     FLAlertLayerProtocol::FLAlert_Clicked(flalert, btn2);
     return;
   }
