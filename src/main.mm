@@ -17,6 +17,7 @@ void button1callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok) {
 }
 
 void button2callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok) {
+  FLAlertLayer.onBtn2(menu_selector(FLAlertLayer::onBtn2));
   //FLAlertLayer->onBtn2(alert);
   //ok->FLAlert_Clicked(alert, true);
 }
@@ -83,15 +84,17 @@ class $modify(FLAlertLayer) {
       NSString* title = [NSString stringWithUTF8String:m_fields->title];
       NSString* desc = [NSString stringWithUTF8String:m_fields->desc.c_str()];
       NSString* btn1 = [NSString stringWithUTF8String:m_fields->btn1];
-      CCDirector* director = CCDirector::sharedDirector();
-      auto scene = CCDirector::sharedDirector()->getRunningScene();
-      auto pleasebeflalertlayer = scene->getHighestChildZ();
-      if (pleasebeflalertlayer != 105 || pleasebeflalertlayer != alert) {
-        NSLog(@"silly noooooooo");
-        return;
-      } else {
-        NSLog(@"silly ok what now");
-      }
+      /*CCDirector* director = CCDirector::sharedDirector();
+      auto scene = director->getRunningScene();
+      for (auto pleaseflalert : scene->getChildren()) {
+        auto FLAlert = typeinfo_cast<FLAlertLayer*>(pleaseflalert);
+        if (FLAlert) {
+          auto mainlayer = FLAlert->getChildByIDRecursive("main-layer");
+          auto mainmenu = mainlayer->getChildByIDRecursive("main-menu");
+          auto button1 = mainmenu->getChildByIDRecursive("button-1");
+        }
+        break;
+      }*/
       if (m_fields->btn2) {
         isbtn2 = true;
         btn2 = [NSString stringWithUTF8String:m_fields->btn2];
