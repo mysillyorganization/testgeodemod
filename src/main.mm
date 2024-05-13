@@ -13,13 +13,13 @@ void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSS
                               preferredStyle:UIAlertControllerStyleAlert];
   UIAlertAction* action1 = [UIAlertAction actionWithTitle:btn1 style:UIAlertActionStyleDefault
                               handler:^(UIAlertAction* action) {
-                                delegate->FLAlert_Clicked(fr, false);
+                                FLAlertLayerProtocol::FLAlert_Clicked(fr, false);
                               }];
   [alert addAction:action1];
   if (isbtn2) {
     UIAlertAction* action2 = [UIAlertAction actionWithTitle:btn2 style:UIAlertActionStyleDefault
                               handler:^(UIAlertAction* action) {
-                                delegate->FLAlert_Clicked(fr, true);
+                                FLAlertLayerProtocol::FLAlert_Clicked(fr, true);
                               }];
     [alert addAction:action2];
   }
@@ -28,7 +28,13 @@ void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSS
   [view presentViewController:alert animated:YES completion:nil];
 });}
 
-class $modify(ModifFLAlertLayer, FLAlertLayer) {
+class $modify(FLAlertLayerProtocol) {
+  void FLAlert_Clicked(FLAlertLayer* layer, bool btn2) override {
+    return FLAlertLayerProtocol::FLAlert_Clicked(layer, btn2);
+  }
+};
+
+class $modify(FLAlertLayer) {
   
   struct Fields {
     FLAlertLayerProtocol* delegate;
@@ -63,7 +69,7 @@ class $modify(ModifFLAlertLayer, FLAlertLayer) {
     return;
   }
   void show() {
-    auto alert = static_cast<ModifFLAlertLayer*>(FLAlertLayer::create(m_fields->delegate, m_fields->title, m_fields->desc, m_fields->btn1, m_fields->btn2));
+    auto alert = static_cast<FLAlertLayer*>(FLAlertLayer::create(m_fields->delegate, m_fields->title, m_fields->desc, m_fields->btn1, m_fields->btn2));
     
     bool isbtn2 = false;
     NSString* btn2;
