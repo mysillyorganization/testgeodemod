@@ -29,9 +29,10 @@ void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSS
 });}
 
 class $modify(FLAlertLayer) {
-  FLAlertLayer* fr;
+  
   struct Fields {
-    gd::FLAlertLayerProtocol* delegate;
+    FLAlertLayerProtocol* delegate;
+    FLAlertLayer* fr;
     char const* title;
     std::string desc;
     char const* btn1;
@@ -63,7 +64,7 @@ class $modify(FLAlertLayer) {
     m_fields->desc = p2;
     m_fields->btn1 = p3;
     m_fields->btn2 = p4;
-    
+    m_fields->fr = static_cast<FLAlertLayer*>(FLAlertLayer::create(p0, p1, p2, p3, p4, p5, p6, p7, p8))
     FLAlertLayer::create(p0, p1, p2, p3, p4, p5, p6, p7, p8);
     return;
   }
@@ -79,7 +80,7 @@ class $modify(FLAlertLayer) {
         isbtn2 = true;
         btn2 = [NSString stringWithUTF8String:m_fields->btn2];
       }
-      showAlert(title, desc, btn1, isbtn2, btn2, m_fields->delegate, fr);
+      showAlert(title, desc, btn1, isbtn2, btn2, m_fields->delegate, m_fields->fr);
       return;
     }
     FLAlertLayer::show();
