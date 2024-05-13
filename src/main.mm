@@ -1,6 +1,6 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/FLAlertLayer.hpp>
-#include <Geode/modify/FLAlertLayerProtocol.hpp>
+#include <Geode/binding/FLAlertLayerProtocol.hpp>
 #include <Foundation/Foundation.h>
 #include <UIKit/UIKit.h>
 using namespace geode::prelude;
@@ -17,8 +17,8 @@ void button1callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok) {
 }
 
 void button2callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok) {
-  //ok->FLAlert_Clicked(alert, true);
-  FLAlertLayer->onBtn2(alert);
+  ok->FLAlert_Clicked(alert, true);
+  //FLAlertLayer->onBtn2(alert);
 }
 
 void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSString* btn2, FLAlertLayerProtocol* qhar, FLAlertLayer* fr) {
@@ -44,13 +44,13 @@ void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSS
   [view presentViewController:alert animated:YES completion:nil];
 });}
 
-class $modify(FLAlertLayerProtocol) {
+/*class $modify(FLAlertLayerProtocol) {
   virtual void FLAlert_Clicked(FLAlertLayer* flalert, bool btn2) override {
     FLAlertLayerProtocol::FLAlert_Clicked(flalert, btn2);
     return;
   }
 };
-
+*/
 class $modify(FLAlertLayer) {
   
   struct Fields {
