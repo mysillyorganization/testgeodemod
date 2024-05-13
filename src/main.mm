@@ -13,11 +13,12 @@ void button1callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok) {
     NSLog(@"very silly");
   }
   //ok yeah both are defined but no callback
-  ok->FLAlert_Clicked(alert, false);
+  //ok->FLAlert_Clicked(alert, false);
 }
 
 void button2callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok) {
-  ok->FLAlert_Clicked(alert, true);
+  FLAlertLayer::onBtn2(alert);
+  //ok->FLAlert_Clicked(alert, true);
 }
 
 void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSString* btn2, FLAlertLayerProtocol* qhar, FLAlertLayer* fr) {
