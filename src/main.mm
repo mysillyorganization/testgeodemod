@@ -17,7 +17,8 @@ void button1callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok) {
 }
 
 void button2callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok) {
-  ok->FLAlert_Clicked(alert, true);
+  //ok->FLAlert_Clicked(alert, true);
+  FLAlertLayer->onBtn2(alert);
 }
 
 void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSString* btn2, FLAlertLayerProtocol* qhar, FLAlertLayer* fr) {
