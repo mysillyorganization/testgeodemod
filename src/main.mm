@@ -28,7 +28,7 @@ void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSS
   [view presentViewController:alert animated:YES completion:nil];
 });}
 
-class $modify(FLAlertLayer) {
+class $modify(ModifFLAlertLayer, FLAlertLayer) {
   
   struct Fields {
     FLAlertLayerProtocol* delegate;
@@ -63,7 +63,7 @@ class $modify(FLAlertLayer) {
     return;
   }
   void show() {
-    auto alert = static_cast<FLAlertLayer*>(FLAlertLayer::create(m_fields->delegate, m_fields->title, m_fields->desc, m_fields->btn1, m_fields->btn2));
+    auto alert = static_cast<ModifFLAlertLayer*>(FLAlertLayer::create(m_fields->delegate, m_fields->title, m_fields->desc, m_fields->btn1, m_fields->btn2));
     
     bool isbtn2 = false;
     NSString* btn2;
