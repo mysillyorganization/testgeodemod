@@ -78,6 +78,7 @@ class $modify(FLAlertLayer) {
     m_fields->btn2 = p4;
     if (m_fields->title) {
       //m_fields->alert = static_cast<FLAlertLayer*>(FLAlertLayer::create(p0, p1, p2, p3, p4, p5, p6, p7, p8));
+      this->show();
       p0->FLAlert_Clicked(this, true);
       return;
     }
