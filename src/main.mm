@@ -17,8 +17,7 @@ void button1callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok) {
 }
 
 void button2callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok) {
-  FLAlertLayerProtocol* hi = new FLAlertLayerProtocol;
-  hi->FLAlert_Clicked(alert, true);
+  ok->FLAlert_Clicked(alert, true);
   //FLAlertLayer->onBtn2(alert);
 }
 
@@ -78,6 +77,7 @@ class $modify(FLAlertLayer) {
     m_fields->btn1 = p3;
     m_fields->btn2 = p4;
     if (m_fields->title) {
+      m_fields->delegate = typeinfo_cast<FLAlertLayerProtocol*>(FLAlertLayer::create(p0, p1, p2, p3, p4, p5, p6, p7, p8));
       m_fields->alert = typeinfo_cast<FLAlertLayer*>(FLAlertLayer::create(p0, p1, p2, p3, p4, p5, p6, p7, p8));
       return;
     }
