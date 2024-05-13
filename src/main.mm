@@ -74,7 +74,6 @@ class $modify(FLAlertLayer) {
   
   void show() {
     auto alert = static_cast<FLAlertLayer*>(FLAlertLayer::create(m_fields->delegate, m_fields->title, m_fields->desc, m_fields->btn1, m_fields->btn2));
-    FLAlertLayer::show();
     bool isbtn2 = false;
     NSString* btn2;
     if (m_fields->title) {
