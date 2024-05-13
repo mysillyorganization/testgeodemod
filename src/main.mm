@@ -12,8 +12,8 @@ void button1callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok) {
   if (ok) {
     NSLog(@"very silly");
   }
-  return;
-  //ok->FLAlert_Clicked(alert, false);
+  
+  ok->FLAlert_Clicked(alert, false);
 }
 
 void button2callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok) {
