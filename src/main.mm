@@ -44,7 +44,7 @@ class $modify(FLAlertLayer) {
       m_fields->delegate = p0;
     }
     else {
-      m_fields->delegate = gd::FLAlertLayerProtocol*;
+      m_fields->delegate = FLAlertLayerProtocol*;
     }
     
     m_fields->title = p1;
