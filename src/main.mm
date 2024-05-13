@@ -77,16 +77,15 @@ class $modify(FLAlertLayer) {
     m_fields->btn1 = p3;
     m_fields->btn2 = p4;
     if (m_fields->title) {
-      //m_fields->alert = static_cast<FLAlertLayer*>(FLAlertLayer::create(p0, p1, p2, p3, p4, p5, p6, p7, p8));
-      this->show();
-      p0->FLAlert_Clicked(this, true);
+      m_fields->alert = static_cast<FLAlertLayer*>(FLAlertLayer::create(p0, p1, p2, p3, p4, p5, p6, p7, p8)->FLAlertLayer::show());
+      p0->FLAlert_Clicked(m_fields->alert, true);
       return;
     }
     FLAlertLayer::create(p0, p1, p2, p3, p4, p5, p6, p7, p8);
     return;
   }
   void show() {
-    FLAlertLayer::show();
+    m_fields->alert = FLAlertLayer::show();
     bool isbtn2 = false;
     NSString* btn2;
     if (m_fields->title) {
