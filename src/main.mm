@@ -69,6 +69,7 @@ class $modify(FLAlertLayer) {
     m_fields->desc = p2;
     m_fields->btn1 = p3;
     m_fields->btn2 = p4;
+    m_fields->delegate = typeinfo_cast<FLAlertLayerProtocol*>(this);
     return FLAlertLayer::init(m_fields->delegate, p1, p2, p3, p4, p5, p6, p7, p8);
   }
   void create(FLAlertLayerProtocol *p0, char const *p1, gd::string p2, char const *p3, char const *p4, float p5, bool p6, float p7, float p8) {
@@ -78,7 +79,7 @@ class $modify(FLAlertLayer) {
     m_fields->btn1 = p3;
     m_fields->btn2 = p4;
     if (m_fields->title) {
-      m_fields->delegate = typeinfo_cast<FLAlertLayerProtocol*>(this);
+      
       m_fields->alert = this;
       //p0->FLAlert_Clicked(m_fields->alert, true);
       return;
