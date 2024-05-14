@@ -1,3 +1,4 @@
+using namespace geode::prelude;
 class testAlertProtocol : public FLAlertLayerProtocol {
 
 public:
