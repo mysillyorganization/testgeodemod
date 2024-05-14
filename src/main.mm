@@ -87,7 +87,7 @@ class $modify(FLAlertLayer) {
     return;
   }
   void show() {
-    
+    m_fields->delegate = typeinfo_cast<FLAlertLayerProtocol*>(this);
     bool isbtn2 = false;
     NSString* btn2;
     if (m_fields->title) {
