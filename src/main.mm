@@ -74,6 +74,7 @@ class $modify(FLAlertLayer) {
     return FLAlertLayer::init(m_fields->delegate, p1, p2, p3, p4, p5, p6, p7, p8);
   }
   void create(FLAlertLayerProtocol *p0, char const *p1, gd::string p2, char const *p3, char const *p4, float p5, bool p6, float p7, float p8) {
+    
     p0 = m_fields->delegate;
     m_fields->title = p1;
     m_fields->desc = p2;
@@ -110,7 +111,10 @@ class $modify(FLAlertLayer) {
         isbtn2 = true;
         btn2 = [NSString stringWithUTF8String:m_fields->btn2];
       }
-      m_fields->delegate.FLAlert_Clicked(m_fields->alert, true);
+      if (m_fields->delegate) {
+        m_fields->delegate->FLAlert_Clicked(m_fields->alert, true); //hmmmm
+      }
+      
       //NSLog(@"silly %s", m_fields->delegate);
       //NSLog(@"silly %s", m_fields->fr);
       //showAlert(title, desc, btn1, isbtn2, btn2, m_fields->delegate, m_fields->alert);
