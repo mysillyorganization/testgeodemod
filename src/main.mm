@@ -71,7 +71,7 @@ class $modify(FLAlertLayer) {
     m_fields->btn2 = p4;
     m_fields->alert = new FLAlertLayer;
     if (m_fields->title) {
-      return m_fields->alert::init(m_fields->delegate, p1, p2, p3, p4, p5, p6, p7, p8);
+      return m_fields->alert->init(m_fields->delegate, p1, p2, p3, p4, p5, p6, p7, p8);
     }
     //m_fields->delegate = typeinfo_cast<FLAlertLayerProtocol*>(this);
     return FLAlertLayer::init(m_fields->delegate, p1, p2, p3, p4, p5, p6, p7, p8);
@@ -87,7 +87,7 @@ class $modify(FLAlertLayer) {
       
       //m_fields->alert = this;
       //p0->FLAlert_Clicked(m_fields->alert, true);
-      m_fields->alert::create(m_fields->delegate, p1, p2, p3, p4, p5, p6, p7, p8);
+      m_fields->alert->create(m_fields->delegate, p1, p2, p3, p4, p5, p6, p7, p8);
       return;
     }
     FLAlertLayer::create(p0, p1, p2, p3, p4, p5, p6, p7, p8);
