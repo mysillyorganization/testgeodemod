@@ -63,13 +63,13 @@ class $modify(FLAlertLayer) {
     char const* btn2;
   };
   bool init(FLAlertLayerProtocol *p0, char const *p1, gd::string p2, char const *p3, char const *p4, float p5, bool p6, float p7, float p8) {
-    //m_fields->delegate = p0; //this is apparebtly null and using new protocol will make the thing not work
+    m_fields->delegate = new FLAlertLayerProtocol*; //this is apparebtly null and using new protocol will make the thing not work
     NSLog(@"silly init");
     m_fields->title = p1;
     m_fields->desc = p2;
     m_fields->btn1 = p3;
     m_fields->btn2 = p4;
-    m_fields->delegate = typeinfo_cast<FLAlertLayerProtocol*>(this);
+    //m_fields->delegate = typeinfo_cast<FLAlertLayerProtocol*>(this);
     
     return FLAlertLayer::init(m_fields->delegate, p1, p2, p3, p4, p5, p6, p7, p8);
   }
