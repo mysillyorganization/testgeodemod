@@ -1,6 +1,6 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/FLAlertLayer.hpp>
-#include <Geode/binding/FLAlertLayerProtocol.hpp>
+#include <Geode/modify/FLAlertLayerProtocol.hpp>
 #include <Foundation/Foundation.h>
 #include <UIKit/UIKit.h>
 using namespace geode::prelude;
