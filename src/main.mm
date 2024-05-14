@@ -44,13 +44,13 @@ void showAlert(NSString* title, NSString* desc, NSString* btn1, bool isbtn2, NSS
   [view presentViewController:alert animated:YES completion:nil];
 });}
 
-/*class $modify(FLAlertLayerProtocol) {
-  virtual void FLAlert_Clicked(FLAlertLayer* flalert, bool btn2) override {
+class $modify(FLAlertLayerProtocol) {
+  void FLAlert_Clicked(FLAlertLayer* flalert, bool btn2) override {
     FLAlertLayerProtocol::FLAlert_Clicked(flalert, btn2);
-    return;
+    
   }
 };
-*/
+
 class $modify(FLAlertLayer) {
   
   struct Fields {
