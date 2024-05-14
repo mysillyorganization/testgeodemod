@@ -16,7 +16,7 @@ endif()
 
 add_library(${PROJECT_NAME} SHARED
     src/main.mm
-    src/hello.h
+    src/hello.hpp
 )
 
 if (NOT DEFINED ENV{GEODE_SDK})
