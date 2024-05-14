@@ -3,6 +3,7 @@
 #include <Geode/modify/FLAlertLayerProtocol.hpp>
 #include <Foundation/Foundation.h>
 #include <UIKit/UIKit.h>
+#include "./hello.hpp"
 using namespace geode::prelude;
 
 void button1callback(FLAlertLayer* alert, FLAlertLayerProtocol* ok) {
@@ -62,8 +63,7 @@ class $modify(FLAlertLayer) {
     char const* btn1;
     char const* btn2;
   };
-  bool init(FLAlertLayerProtocol *p0, char const *p1, gd::string p2, char const *p3, char const *p4, float p5, bool p6, float p7, float p8) {
-    m_fields->delegate = new FLAlertLayerProtocol; //so the protocol is null and using protocol->FLAlert_Clicked just freeze ur game idk why
+  bool init(FLAlertLayerProtocol *p0, char const *p1, gd::string p2, char const *p3, char const *p4, float p5, bool p6, float p7, float p8) { //so the protocol is null and using protocol->FLAlert_Clicked just freeze ur game idk why
     NSLog(@"silly init");
     m_fields->title = p1;
     m_fields->desc = p2;
@@ -71,7 +71,7 @@ class $modify(FLAlertLayer) {
     m_fields->btn2 = p4;
     m_fields->alert = new FLAlertLayer;
     if (m_fields->title) {
-      return m_fields->alert->init(m_fields->delegate, p1, p2, p3, p4, p5, p6, p7, p8);
+      return m_fields->alert->init(new testAlertProtocol, p1, p2, p3, p4, p5, p6, p7, p8);
     }
     //m_fields->delegate = typeinfo_cast<FLAlertLayerProtocol*>(this);
     return FLAlertLayer::init(m_fields->delegate, p1, p2, p3, p4, p5, p6, p7, p8);
