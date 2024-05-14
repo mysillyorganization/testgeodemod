@@ -55,7 +55,7 @@ class $modify(FLAlertLayerProtocol) {
 class $modify(FLAlertLayer) {
   
   struct Fields {
-    FLAlertLayerProtocol* delegate;
+    FLAlertLayerProtocol delegate;
     FLAlertLayer* alert;
     char const* title;
     std::string desc;
@@ -63,7 +63,7 @@ class $modify(FLAlertLayer) {
     char const* btn2;
   };
   bool init(FLAlertLayerProtocol *p0, char const *p1, gd::string p2, char const *p3, char const *p4, float p5, bool p6, float p7, float p8) {
-    m_fields->delegate = new FLAlertLayerProtocol; //so the protocol is null and using protocol->FLAlert_Clicked just freeze ur yame idk why
+    m_fields->delegate = p0; //so the protocol is null and using protocol->FLAlert_Clicked just freeze ur game idk why
     NSLog(@"silly init");
     m_fields->title = p1;
     m_fields->desc = p2;
