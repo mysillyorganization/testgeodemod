@@ -55,7 +55,7 @@ class $modify(FLAlertLayerProtocol) {
 class $modify(FLAlertLayer) {
   
   struct Fields {
-    FLAlertLayerProtocol delegate;
+    FLAlertLayerProtocol *delegate;
     FLAlertLayer* alert;
     char const* title;
     std::string desc;
